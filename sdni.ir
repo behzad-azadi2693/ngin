@@ -1,0 +1,17 @@
+access_log /var/log/nginx/sdni.ir.access.log;
+
+server {
+        listen 80;
+        server_name sdni.ir www.sdni.ir;
+        charset utf-8;
+
+        access_log /var/log/nginx/sdni.ir_access.log;
+        error_log  /var/log/nginx/sdni.ir_error.log;
+
+        root /var/www/frontend/sdni;
+        index index.html index.htm;
+
+        location / {
+           try_files $uri $uri/ =404;
+        }
+}
